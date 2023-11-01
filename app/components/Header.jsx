@@ -6,22 +6,6 @@ import {} from "react-icons/rx"
 
 const header = () => {
     
-const pathname = usePathname();
-    const navList = [
-        {label: 'dashboard',
-        url: `/dashboard`
-    },
-        {label: 'case',
-        url: `/case`
-    },
-        {label: 'evidence',
-        url: `/evidence`
-    },
-        {label: 'report',
-        url: `/report`
-    },
-
-    ]
   return (
     <div>
         <ul className="h-10 flex  py-10">

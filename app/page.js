@@ -1,16 +1,11 @@
-import LoginForm from "../app/components/LoginForm"
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default async function Home() {
-  const session = await getServerSession(authOptions);
 
-  if (session) redirect("/dashboard");
-
+const HomePage = () => {
   return (
-    <main>
-      <LoginForm />
-    </main>
-  );
+    <div className="flex items-center justify-center font-bold text-3xl w-full h-full">
+     welcome page
+    </div>
+  )
 }
+
+export default HomePage 

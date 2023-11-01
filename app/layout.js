@@ -1,3 +1,4 @@
+
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
@@ -7,7 +8,6 @@ import Sidebar from './components/Sidebar'
 import Link from 'next/link'
 import {RxDashboard, RxFile, RxPlus, RxTable} from "react-icons/rx"
 import {TbFileReport} from "react-icons/tb"
-import { AuthProvider } from "./Providers"
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -71,7 +71,8 @@ export default function RootLayout({ children }) {
                 </Link>
                 <Link className="w-full  font-bold" href="/dashboard">
                 <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
-                 <i><TbFileReport/></i>
+                 <i
+                 ><TbFileReport/></i>
                  Logout
                  </li>
                 </Link>
@@ -79,9 +80,8 @@ export default function RootLayout({ children }) {
           </div>
 
           <div className="w-8/12 p-2">
-          <AuthProvider>  
+          
           {children}
-          </AuthProvider>
 
           </div>
 
@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
 
           <div>
           <Footer/>
-          </div>
+          </div> 
         </div>  
        </body>
     </html>
