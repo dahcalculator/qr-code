@@ -4,12 +4,15 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Mini from './components/Mini'
 import Sidebar from './components/Sidebar'
+import Link from 'next/link'
+import {RxDashboard, RxFile, RxPlus, RxTable} from "react-icons/rx"
+import {TbFileReport} from "react-icons/tb"
+import { AuthProvider } from "./Providers"
 
 const poppins = Poppins({ 
   subsets: ['latin'],
   weight: ['400', '600',]
 })
-
 
 
 export const metadata = {
@@ -18,8 +21,10 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+   
   return ( 
     <html lang="en">
+
       <body className={poppins.className} >
         <div className="w-screen h-full">
           <div className="p-2">
@@ -29,12 +34,55 @@ export default function RootLayout({ children }) {
 
           <div className="flex w-full h-full  ">
 
-          <div className="w-1/12  shadow-md bg-white p-2">
-          <Sidebar/>
+          <div className="w-1/12  shadow-md bg-white ">
+
+          <ul className=" flex-col  justify-evenly  flex gap-4 text-xs capitalize py-2 ">
+            
+               
+                <Link className="w-full   font-bold" href="/dashboard">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><RxDashboard/></i>
+                 dashboard
+                 </li>
+                </Link>
+                <Link className="w-full   font-bold" href="/cases">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><RxFile/></i>
+                 Case
+                 </li>
+                </Link>
+                <Link className="w-full   font-bold" href="/addcase">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><RxPlus/></i>
+                 add case
+                 </li>
+                </Link>
+                <Link className="w-full   font-bold" href="/evidence">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><RxTable/></i>
+                 evidence
+                 </li>
+                </Link>
+                <Link className="w-full   font-bold" href="/report">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><RxFile/></i>
+                 report
+                 </li>
+                </Link>
+                <Link className="w-full  font-bold" href="/dashboard">
+                <li   className=" h-6 gap-2 hover:bg-blue-200 hover:font-bold px-2 items-center flex rounded-md">
+                 <i><TbFileReport/></i>
+                 Logout
+                 </li>
+                </Link>
+         </ul>
           </div>
 
           <div className="w-8/12 p-2">
+          <AuthProvider>  
           {children}
+          </AuthProvider>
+
           </div>
 
           <div className="w-3/12 bg-white py-4">

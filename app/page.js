@@ -1,29 +1,16 @@
+import LoginForm from "../app/components/LoginForm"
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
+export default async function Home() {
+  const session = await getServerSession(authOptions);
 
-const HomePage = () => {
+  if (session) redirect("/dashboard");
+
   return (
-    <div className="">
-      1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-1.	Ibrahim Badamasi Babangida University, Lapai
-B.A in History and International Studies
-
-    </div>
-  )
+    <main>
+      <LoginForm />
+    </main>
+  );
 }
-
-export default HomePage 

@@ -10,25 +10,21 @@ const Sidebar = () => {
 const pathname = usePathname();
     const navList = [
         {label: 'dashboard',
-        url: `/dashboard`,
-        icon: 'RxDashboard'
+        url: `/dashboard`
         
     },
         {label: 'case',
-        url: `/case`,
-        icon: 'RxFile/'
+        url: `/cases`
+       
     },
         {label: 'evidence',
-        url: `/evidence`,
-        icon: 'RxTable'
+        url: `/evidence`
     },
         {label: 'report',
-        url: `/report`,
-        icon: 'TbFileReport'
+        url: `/report`
     },
         {label: 'Logout',
-        url: `/`,
-        icon: 'RxDashboard'
+        url: `/`
     }
 
     ]

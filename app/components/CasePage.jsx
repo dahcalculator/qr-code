@@ -1,38 +1,29 @@
+
+import Link from "next/link";
+
+
 import React from 'react'
 
-
-async function getCases() {
-
-  const res = await fetch('http://localhost:4000/cases');
-
-  return res.json();
-}
-
-
-
-const cases = await getCases();
-
-
-const CasePage = () => {
+const CasePage = ({id, title, description, createdAt}) => {
   return (
     <div>
-       {
-           cases.map((c)=>(
-            
-        <article className="space-y-4  p-4">
-            <div className="capitalize">
-                <div className="font-bold"> title: {c.title}</div>
-                <div> <span className="font-bold"> Date:</span> 2nd match 2029</div>
-                <div> <span className="font-bold"> case:</span> 1172 </div>
-            </div>
-            <div>
-                image
-            </div>
-            <div>
-           {c.body}
-            </div>
-        </article>
-         ))}
+      <article className="space-y-4  p-4">
+      
+      <div className="w-full flex "> <Link href={`/editcase/${id}`} className=" bg-green-600 font-bold text-white py-3 px-6 w-fit self-end"> Edit Case </Link></div>
+      
+         <div className="capitalize">
+             <div className="font-bold"> title: {title}</div>
+             <div> <span className="font-bold"> Date:</span> {createdAt}</div>
+             <div> <span className="font-bold"> case:</span> {id.slice(0,8)} </div>
+         </div>
+
+         <div>
+             image
+         </div>
+         <div>
+        {description}
+         </div>
+     </article>
     </div>
   )
 }
